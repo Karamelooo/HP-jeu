@@ -1,0 +1,14 @@
+{
+    "name": "admin/hp-jeu",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hugo PETIT"
+        }
+    ],
+    "require": {}
+}

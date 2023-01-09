@@ -2,6 +2,12 @@
 namespace App;
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use App\Tests\PartieTest;
+use App\Tests\JoueurTest;
+use App\Tests\TricheurTest;
+use App\Tests\ChanceuxTest;
+use App\Tests\RegulierTest;
+
 use App\Entity\Abstract\AbstractJoueur;
 use App\Entity\Joueur;
 use App\Entity\Regulier;
@@ -32,5 +38,24 @@ $partie->setBonus(true); // Accorder un bonus au dernier de chaque manche. "fals
 $partieController = new PartieController($partie); // On déclare la partie à lancer dans le contrôleur
 
 $partie_log = $partieController->lancerJeu(); // On lance le jeu
+
+// Tests Partie
+$partieTest = new partieTest();
+$partieTest->testAddParticipant();
+$partieTest->testSetBonus();
+$partieTest->testSetMalus();
+
+// Teste les atouts des différents types de joueur
+$joueurTest = new JoueurTest();
+$joueurTest->testAtout();
+
+$tricheurTest = new TricheurTest();
+$tricheurTest->testAtout();
+
+$chanceuxText = new ChanceuxTest();
+$chanceuxText->testAtout();
+
+$regulierTest = new RegulierTest();
+$regulierTest->testAtout();
 
 require_once('../templates/homepage.php'); // Affichage de la vue
